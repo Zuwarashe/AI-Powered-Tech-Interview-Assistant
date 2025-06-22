@@ -1,0 +1,17 @@
+langchain-community
+pypdf
+docx
+unstructured
+openpyxl
+spacy
+boto3
+dateparser
+networkx
+docx2txt
+pandas
+pdfminer.six
+python-docx
+textblob
+uuid
+streamlit
+scikit-learn
