@@ -79,11 +79,27 @@ docker compose up --build
 ## 📊 Example Workflow
 
 ```plaintext
-1. HR uploads a resume → Resume API extracts structured data
-2. System sends extracted data + role to LLM → Gets interview questions
-3. Engineer conducts interview and submits feedback
-4. Candidate summary and scores are stored
-5. HR filters top candidates using scores and searches skills like "AWS Athena"
-6. System uses cosine similarity to return semantically relevant candidates
+1. HR uploads a resume → Resume API extracts structured data (experience, skills, education, etc.)
 
-## 
+2. System matches candidate profile to company-defined job levels (Junior, Mid-Level, Senior) using extracted CV data and internal benchmarks.
+
+3. Candidate is stored in a level-specific talent pool for future use (e.g., junior dev pool).
+
+4. System sends candidate data + desired role to LLM → Generates personalized interview questions.
+
+5. Engineer conducts technical interview and submits feedback scores (e.g., problem solving, communication).
+
+6. HR conducts final feedback round, accepts/rejects candidate, and adds final summary.
+
+7. All structured scores and AI summaries are stored in the candidate database.
+
+8. HR can later search for suitable candidates using filters like:
+   - Personality score > 4
+   - Role = "Backend Developer"
+   - Job Level = "Mid"
+   - Skills ≈ "AWS Athena", "ETL", "S3"
+
+9. The system performs hybrid search:
+   - SQL filters for structured fields
+   - Cosine similarity via vector embeddings for semantic skill match
+
